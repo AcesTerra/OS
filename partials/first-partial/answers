@@ -1,0 +1,18 @@
+1. The output will be 5. This is because, even tough, both share a memory space, neither process can access the
+variables of the other process.
+
+2. 8 processes.
+
+3. Three major complications:
+	- Undesired user experience. For example: If you were listening music and move to another app, you woul like
+	  keep listening music, but the music stops when you change the application. You were not able to read an
+	  article from a web site and listen music at the same time.
+	- Without background, you should wait until an application finish a task to see the result. You cannot just
+	  change to anoher application while the application finish the task. For example: Dowloading a file from a
+	  website. You must wait until the file is downloaded.
+	- Inefficient core usage. You are taking advantage of the processor to process all data. It becomes sequential
+	  instead playing with the processing power you have.
+
+4. Shared memory segments.
+
+5. 16 processes.
