@@ -1,0 +1,22 @@
+mkdir raiz
+cd raiz
+mkdir dats librerias resultados bytes
+cd bytes
+touch 1.dat 2.dat 3.dat 4.dat 5.dat 6.dat 7.dat 8.dat 9.dat 10.dat
+ls
+echo -e "1\n15\n3.14\nalfa" > 1.dat
+echo -e "17\n21\n2.7\nbravo" > 2.dat
+echo -e "24\n33\n17.8\ncharlie" > 3.dat 
+echo -e "11\n25\n44.28\ndelta" > 4.dat
+echo -e "82\n9\n1.68\necho" > 5.dat
+echo -e "43\n12\n22.3\nfoxtrot" > 6.dat
+echo -e "10\n20\n6.21\ngolf" > 7.dat
+echo -e "23\n45\n23.45\nhotel" > 8.dat
+echo -e "7\n15\n56.78\nindia" > 9.dat
+echo -e "13\n13\n3.1\njuliett" > 10.dat
+cd..
+ls bytes/
+cp bytes/*.dat dats/
+rm -r bytes/
+mv dats/ datos/
+touch main.cpp estructuras.cpp funciones.cpp
