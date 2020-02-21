@@ -19,6 +19,10 @@ int main(int argc, char** argv)
 		return 0;
 	}
 
+	//printf("%lu\n", sizeof(int));
+	//printf("%lu\n", sizeof(double));
+	//printf("%lu\n", sizeof(char[50]));
+
 	int files = stoi(argv[1]);
 	string extension = ".dat";
 	data *allData;
@@ -37,7 +41,7 @@ int main(int argc, char** argv)
 	}
 
 	for(int i = 0; i < files; i++)
-		printf("Data from the file number %d: %d %d %0.2lf %s\n", i+1, (allData+i)->x, (allData+i)->y, (allData+i)->z, (allData+i)->name);
+		printf("Data from the file %d.dat: %d %d %0.2lf %s\n", i+1, (allData+i)->x, (allData+i)->y, (allData+i)->z, (allData+i)->name);
 
 	char *result;
   	result = (char*) malloc(dataSize*files);
@@ -47,7 +51,7 @@ int main(int argc, char** argv)
 	FILE *fptr;
 
 	// opening file in writing mode
-	fptr = fopen("resultados/datos.bin", "w");
+	fptr = fopen("resultados/datos.bin", "wb");
 
 	// exiting program
 	if (fptr == NULL) {
@@ -58,7 +62,8 @@ int main(int argc, char** argv)
 	//printf("Enter a sentence:\n");
 	//fgets(sentence, sizeof(sentence), stdin);
 	//fprintf(fptr, "%s", result);
-	fwrite(&result, sizeof(result), 1, fptr);
+	fwrite(result, sizeof(result), 1, fptr);
+	printf("%lu\n", sizeof(*allData));
 	cout << "Writing into file" << endl;
 	fclose(fptr);
 	//cout << "Closing file" << endl;

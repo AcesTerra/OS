@@ -1,0 +1,24 @@
+1. ¿Qué tamaño tiene en memoria la estructura que generaste?
+R = 66 bytes.
+
+2. ¿Por qué?
+R = Porque ejecuté la función sizeof para saber cual era el tamaño de los tipos de datos utilizados en la estructura. Int -> 4 bytes, Double -> 8 bytes, Char[50] -> 50 bytes.
+La estructura tiene dos enteros, un flotante doble y una cadena de caracteres con tamaño de 50. Sumados dan como resultado 66 bytes.
+
+3. ¿Qué tamaño tiene en memoria el arreglo de estructuras que generaste?
+R = 66 * argc.
+
+4. ¿Por qué?
+R = Porque depende del número que mandes como argumento al programa. Por ejemplo: Si mandas un 5 la estructura tendría una tamaño de 330 bytes (66*5=330).
+
+5. ¿Qué tamaño tiene en memoria el archivo resultados/datos.bin?
+R = El mismo que la cadena de caracteres que utilizamos para copiar los datos del arreglo de estructuras.
+
+6. ¿Por qué?
+R = Porque escribimos lo que tiene el arreglo al archivo.
+
+7. ¿Es posible recuperar la información de los datos originales desde la información contenida en resultados/datos.bin?
+R = Sí.
+
+8. ¿Por qué?
+R = Porque conocemos la estructura que tiene la información del archivo. Podemos segmentarlo y extraer la información.
