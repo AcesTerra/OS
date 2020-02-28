@@ -1,3 +1,9 @@
+'''
+Class: Operating Systems
+Assigment: Session04 Threads
+Team: Alfredo Garcia, Jorge Chavez & Andre Ruiz
+'''
+
 from multiprocessing import Pool
 import time
 import sys
