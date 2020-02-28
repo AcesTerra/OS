@@ -15,35 +15,31 @@ maxi = 0.0
 mediana = 0.0
 desviacion = 0.0
 
-class simple:
-        def __init__(self):
-                self.i = 0
-
-def promedio(numbers, test):
+def promedio(numbers):
         global prom
         contador=0
         for i in numbers:
             prom = prom + int(i)
             contador = contador+1
         prom = prom / len(numbers)
-        print("El promedio es: -> ",prom)
+        return prom
 
-def minimo(numbers, test):
+def minimo(numbers):
         global mini
         Min = sorted(numbers)
         mini=Min[0]
-        print("El minimo es: -> ",mini)
+        return mini
 
-def maximo(numbers, test):
+def maximo(numbers):
         global maxi
         Max = sorted(numbers)
         cont=0
         for i in numbers:
             maxi = Max[cont]
             cont+=1
-        print("El maximo es: -> ",maxi)
+        return maxi
 
-def Mediana(numbers, test):
+def Mediana(numbers):
         global mediana
         Order = sorted(numbers)
         Len = len(numbers)//2
@@ -52,9 +48,9 @@ def Mediana(numbers, test):
           if cont == Len:
             mediana=Order[cont]
           cont+=1
-        print("la mediana de los numeros es: -> ",mediana)
+        return mediana
 
-def Desviacion(numbers, test):
+def Desviacion(numbers):
         global desviacion
         MedArit= 0.0
         cont=0.0
@@ -67,23 +63,25 @@ def Desviacion(numbers, test):
           x += (i - MedArit)**2
         x = x/(cont-1)
         desviacion = math.sqrt(x)
-        print("La desviacion estandar es de: -> ",desviacion)
+        return desviacion
 
 
 if __name__ == '__main__':
         args = list(sys.argv)
         numbers = args[1:]
         numbers = [ int(x) for x in numbers ]
-        #numbers = [90,81,78,95,79,72,85]
-        #print(numbers)
-        test = simple()
         pool = Pool(processes=5)
         start = time.time()
-        r1 = pool.apply_async(promedio, (numbers, test))
-        r2 = pool.apply_async(minimo, (numbers, test))
-        r3 = pool.apply_async(maximo, (numbers, test))
-        r4 = pool.apply_async(Mediana, (numbers, test))
-        r5 = pool.apply_async(Desviacion, (numbers, test))
+        r1 = pool.apply_async(promedio, (numbers,))
+        print("El promedio es: -> ", r1.get(timeout=1))
+        r2 = pool.apply_async(minimo, (numbers,))
+        print("El minimo es: -> ", r2.get(timeout=1))
+        r3 = pool.apply_async(maximo, (numbers,))
+        print("El maximo es: -> ", r3.get(timeout=1))
+        r4 = pool.apply_async(Mediana, (numbers,))
+        print("la mediana de los numeros es: -> ", r4.get(timeout=1))
+        r5 = pool.apply_async(Desviacion, (numbers,))
+        print("La desviacion estandar es de: -> ", r5.get(timeout=1))
         pool.close()
         pool.join()
         end = time.time()
