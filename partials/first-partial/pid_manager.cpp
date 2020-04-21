@@ -12,9 +12,11 @@ struct pid{
 	char name[50];
 };
 
-pid mapInfo[4700];
+pid *mapInfo;
 
 int allocate_map() {
+	int dataSize = sizeof(pid);
+        mapInfo = (struct pid*) malloc(dataSize*4700);
 	for(int i = 0; i < PID_RANGE; i++) {
 		pidMap[i] = 0;
 	}
