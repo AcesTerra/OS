@@ -49,7 +49,7 @@ def FCFS(file):
 
 def SSTF(file):
     '''
-    Shortest seek time first
+    Shortest seek time first <- Igual que la función anterior
     :param file: are the numbers that are used to simulate the disks and cylinders of an HDD
     :return: the movements that the memory reader makes
     '''

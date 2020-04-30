@@ -79,11 +79,14 @@ def SSTF(file):
     print("SSTF did", movements, "Movements")
 
 def SCAN(lines):
-    
+    print("To be defined")
+
+def C_SCAN():
+    print("To be defined")
 
 if __name__ == "__main__":
     lines = FileReader()
-    #FCFS(lines)
-    #SSTF(lines)
+    FCFS(lines)
+    SSTF(lines)
     SCAN(lines)
     C-SCAN(lines)
